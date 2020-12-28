@@ -2,9 +2,11 @@ pipeline {
     agent any
     stages{
         stage('test') {
-            withEnv(["PATH=$PATH:~/.local/bin"]){
+            steps{
+                withEnv(["PATH=$PATH:~/.local/bin"]){
                     sh "bash test.sh"
                 }
+            }
         }  
         stage('paso 1'){
            steps{
