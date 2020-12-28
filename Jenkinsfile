@@ -1,13 +1,6 @@
 pipeline {
     agent any
-    stages{
-        stage('test') {
-            steps{
-                withEnv(["PATH=$PATH:~/.local/bin"]){
-                    sh "bash test.sh"
-                }
-            }
-        }  
+    stages{  
         stage('paso 1'){
            steps{
                sh 'echo paso 1'
