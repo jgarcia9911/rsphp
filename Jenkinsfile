@@ -19,7 +19,7 @@ pipeline {
         } 
         stage('servicio rsphp+rsmysql'){
            steps{
-               sh 'sudo /usr/local/bin/docker-compose up -d'
+               sh 'sudo /usr/bin/docker-compose up -d'
            }
         }
     }
