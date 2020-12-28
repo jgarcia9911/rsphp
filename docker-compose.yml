@@ -1,0 +1,24 @@
+version: "3"
+services:
+   rsphp:
+      image: rsphp
+      expose:
+         - 80
+      ports:
+         - 80:80
+      links:
+         - rsmysql
+
+   rsmysql:
+      image: mysql:5.7
+      environment:
+         - MYSQL_DATABASE=usu1
+         - MYSQL_ROOT_PASSWORD=usu123
+         - MYSQL_ROOT_HOST=%
+      volumes:
+         - ./mysql:/var/lib/mysql
+      expose:
+         - 3306
+      ports:
+         - 3306:3306
+           
