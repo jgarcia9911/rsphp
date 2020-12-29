@@ -11,12 +11,14 @@ pipeline {
                sh 'docker images'
            }
         }
-        stage('construir rsphp'){
+       stage('Construir rsphp'){
            steps{
+               sh 'docker-compose down'
+               sh 'docker image rm rsphp'
                sh 'docker build --tag=rsphp .'
-               sh 'docker images' 
+               sh 'docker images'
            }
-        } 
+        }
         stage('servicio rsphp+rsmysql'){
            steps{
                sh 'docker-compose up -d'
