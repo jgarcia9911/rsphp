@@ -3,3 +3,4 @@ RUN printf "deb http://archive.debian.org/debian/ jessie main\ndeb-src http://ar
 RUN apt-get -y update
 RUN apt-get -y install libxslt-dev
 RUN docker-php-ext-install mysql mbstring exif mysqli xsl
+COPY index.php dos.php cinco.php /var/www/html/
