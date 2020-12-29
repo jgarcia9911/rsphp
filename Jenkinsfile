@@ -1,4 +1,9 @@
 pipeline {
+    environment{
+      registro="jgarcia9911/rsphp"
+      registroID="jgarcia9911_DockerHub"
+      dockerImage=""
+   }
     agent any
     stages{  
         stage('paso 1'){
@@ -16,8 +21,20 @@ pipeline {
                sh 'sudo docker-compose down'
                sh 'sudo docker system prune -a'
                sh 'sudo docker build --tag=rsphp .'
+                  script{
+                       dockerImage=docker.build registro + ":dev"
+                  }
                sh 'sudo docker images'
            }
+        }
+        stage('Push a DockerHub'){
+             steps{
+                script{
+                   docker.withRegistry('',registroID){
+                      dockerImage.push()
+                   }
+                }
+             }
         }
         stage('servicio rsphp+rsmysql'){
            steps{
