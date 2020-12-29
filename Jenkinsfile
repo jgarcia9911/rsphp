@@ -22,20 +22,7 @@ pipeline {
                sh 'sudo docker system prune -a'
                sh 'sudo docker build --tag=rsphp .'
                sh 'sudo docker images'
-               script{
-                  dockerImage=docker.build registro + ":dev"
-               }
-               
            }
-        }
-        stage('Push a DockerHub'){
-             steps{
-                script{
-                   docker.withRegistry('',registroID){
-                      dockerImage.push()
-                   }
-                }
-             }
         }
         stage('servicio rsphp+rsmysql'){
            steps{
