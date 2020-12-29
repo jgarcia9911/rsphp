@@ -22,7 +22,7 @@ pipeline {
                sh 'sudo docker system prune -a'
                sh 'sudo docker build --tag=rsphp .'
                   script{
-                       dockerImage=docker.build registro + ":dev"
+                       dockerImage=docker.build registro
                   }
                sh 'sudo docker images'
            }
