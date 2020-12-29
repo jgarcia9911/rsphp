@@ -14,6 +14,7 @@ pipeline {
        stage('Construir rsphp'){
            steps{
                sh 'docker-compose down'
+               sh 'docker system prune -a'
                sh 'docker rmi -f $(docker images -qa)'
                sh 'docker build --tag=rsphp .'
                sh 'docker images'
