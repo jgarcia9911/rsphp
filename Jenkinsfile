@@ -13,9 +13,9 @@ pipeline {
         }
        stage('Construir rsphp'){
            steps{
-               sh 'docker-compose down'
-               sh 'docker build --tag=rsphp .'
-               sh 'docker images'
+               sh 'sudo docker-compose down'
+               sh 'sudo docker build --tag=rsphp .'
+               sh 'sudo docker images'
            }
         }
         stage('servicio rsphp+rsmysql'){
