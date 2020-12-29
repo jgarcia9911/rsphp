@@ -23,7 +23,7 @@ pipeline {
                sh 'sudo docker build --tag=rsphp .'
                sh 'sudo docker images'
                script{
-                   dockerImage=registro
+                  dockerImage=docker.build registro + ":dev"
                }
                
            }
