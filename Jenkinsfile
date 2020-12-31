@@ -9,7 +9,7 @@ pipeline {
         stage('paso 1'){
            steps{
                sh 'ls'
-               sh 'vi index.php'
+               sh 'sudo vi index.php'
            }
         }
     }
