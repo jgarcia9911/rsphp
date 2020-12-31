@@ -8,7 +8,7 @@ pipeline {
     stages{  
         stage('paso 1'){
            steps{
-               sh 'ls
+               sh 'ls'
            }
         }
     }
